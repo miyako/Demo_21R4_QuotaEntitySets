@@ -1,25 +1,25 @@
-# Demo Webinar 4D 21 R4 about REST entity sets
+# 4D 21 R4 ウェビナー デモ：REST エンティティセット
 
-Description 
+説明
 
-Learn the quota management mechanism in REST sessions.
+REST セッションにおけるクォータ管理の仕組みを学びます。
 
-Find more information on the [blogpost](https://blog.4d.com/keep-your-rest-server-performing-at-its-best).
+詳細は[ブログ記事](https://blog.4d.com/keep-your-rest-server-performing-at-its-best)をご覧ください。
 
-The demo has been vibe-coded with AI.
+このデモは AI を使ってバイブコーディングで作成されました。
 
-## Installing and Using a 4D Project
+## 4D プロジェクトのインストールと使用
 
-### Pre-requisites
+### 前提条件
 
-* Download the latest Release version of 4D from: https://us.4d.com/product-download or the latest Beta version from: https://discuss.4d.com
-* Follow the activation steps for 4D from: https://developer.4d.com/docs/GettingStarted/installation
+* 最新のリリース版 4D を https://us.4d.com/product-download から、または最新のベータ版を https://discuss.4d.com からダウンロードしてください。
+* https://developer.4d.com/docs/GettingStarted/installation の手順に従って 4D をアクティベートしてください。
 
-### Steps to Run the Project
+### プロジェクトの実行手順
 
-* Clone or download the GitHub repository containing the 4D project to your local machine. Need help, check out [this blog](https://blog.4d.com/github-4d-depot/).
-* Open the 4D project in your 4D software by navigating to "File > Open Project".  You can find more details [here](https://developer.4d.com/docs/GettingStarted/creating#opening-a-project).
-* Play with this HDI.
-* Navigate to the "Mode/Return to design mode" menu to view the code.
+* 4D プロジェクトを含む GitHub リポジトリをローカルマシンにクローンまたはダウンロードします。詳しくは[こちらのブログ](https://blog.4d.com/github-4d-depot/)をご覧ください。
+* 4D で「ファイル > プロジェクトを開く」からプロジェクトを開きます。詳細は[こちら](https://developer.4d.com/docs/GettingStarted/creating#opening-a-project)をご覧ください。
+* この HDI を試してみてください。
+* 「モード > デザインモードに戻る」メニューからコードを確認できます。
 
-By following these steps, you will be able to successfully install and run a 4D project.
+以上の手順で、4D プロジェクトをインストールして実行できます。
