@@ -17,8 +17,8 @@ REST セッションにおけるクォータ管理の仕組みを学びます。
 
 ### プロジェクトの実行手順
 
-* 4D プロジェクトを含む GitHub リポジトリをローカルマシンにクローンまたはダウンロードします。詳しくは[こちらのブログ](https://blog.4d.com/github-4d-depot/)をご覧ください。
-* 4D で「ファイル > プロジェクトを開く」からプロジェクトを開きます。詳細は[こちら](https://developer.4d.com/docs/GettingStarted/creating#opening-a-project)をご覧ください。
+* 4D プロジェクトを含む GitHub リポジトリをローカルマシンにクローンまたはダウンロードします。詳しくは[こちらのブログ](https://blog.4d.com/ja/github-4d-depot/)をご覧ください。
+* 4D で「ファイル > プロジェクトを開く」からプロジェクトを開きます。詳細は[こちら](https://developer.4d.com/docs/ja/GettingStarted/creating#opening-a-project)をご覧ください。
 * この HDI を試してみてください。
 * 「モード > デザインモードに戻る」メニューからコードを確認できます。
 
