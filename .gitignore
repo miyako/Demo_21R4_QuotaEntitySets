@@ -8,7 +8,7 @@
 #--------------------------------
 # Ignore data file
 #--------------------------------
-#[dD][aA][tT][aA]/
+[dD][aA][tT][aA]/
 *.journal
 *.4DIndx
 *.Match
