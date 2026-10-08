@@ -4,7 +4,7 @@
 
 REST セッションにおけるクォータ管理の仕組みを学びます。
 
-詳細は[ブログ記事](https://blog.4d.com/keep-your-rest-server-performing-at-its-best)をご覧ください。
+詳細は[ブログ記事](https://blog.4d.com/ja/keep-your-rest-server-performing-at-its-best/)をご覧ください。
 
 このデモは AI を使ってバイブコーディングで作成されました。
 
