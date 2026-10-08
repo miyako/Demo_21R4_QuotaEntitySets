@@ -6,7 +6,8 @@ REST セッションにおけるクォータ管理の仕組みを学びます。
 
 詳細は[ブログ記事](https://blog.4d.com/ja/keep-your-rest-server-performing-at-its-best/)をご覧ください。
 
-このページはAIで翻訳されました。
+> [!NOTE]
+> このページはAIで翻訳されました。
 
 ## 4D プロジェクトのインストールと使用
 
