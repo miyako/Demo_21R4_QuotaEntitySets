@@ -21,9 +21,10 @@ let table;
 let tableBody;
 let columns = [];
 
-function showError(message) {
+function showError(error) {
   loadingEl.hidden = true;
-  errorMessage.textContent = message;
+  if (typeof error === 'string') setI18nText(errorMessage, error);
+  else setErrorText(errorMessage, error, 'common.unexpected');
   errorPanel.hidden = false;
 }
 
@@ -72,7 +73,7 @@ function rememberEntitySetRef(ref) {
 
 function renderTable(entities) {
   if (entities.length === 0) {
-    if (!table) resultsContainer.textContent = 'No results found.';
+    if (!table) setI18nText(resultsContainer, 'common.noResults');
     resultsContainer.hidden = false;
     return;
   }
@@ -91,7 +92,8 @@ function renderTable(entities) {
     headerRow.innerHTML = '';
     nextColumns.forEach((column) => {
       const cell = document.createElement('th');
-      cell.textContent = column;
+      if (hasTranslation(`column.${column}`)) setI18nText(cell, `column.${column}`);
+      else cell.textContent = column;
       headerRow.appendChild(cell);
     });
     columns = nextColumns;
@@ -119,11 +121,11 @@ function pageUrl() {
 
 async function loadResults() {
   if (!apiUrl) {
-    showError('No REST query was provided. Return to the search page and try again.');
+    showError('results.noQuery');
     return;
   }
 
-  queryPreview.textContent = apiUrl;
+  setRawText(queryPreview, apiUrl);
 
   if (isLoading || !hasMoreResults) return;
   isLoading = true;
@@ -137,7 +139,7 @@ async function loadResults() {
     try {
       payload = responseText ? JSON.parse(responseText) : null;
     } catch {
-      throw new Error(`The REST server returned invalid JSON (HTTP ${response.status}).`);
+      throw new I18nError('common.invalidJson', { status: response.status });
     }
 
     if (!response.ok) {
@@ -162,7 +164,7 @@ async function loadResults() {
     if (currentEntitySet !== '-') {
       apiUrl = currentEntitySet;
       sessionStorage.setItem('apiUrl', apiUrl);
-      queryPreview.textContent = apiUrl;
+      setRawText(queryPreview, apiUrl);
 
       if (window.opener && !window.opener.closed) {
         window.opener.postMessage(
@@ -183,7 +185,7 @@ async function loadResults() {
       hasMoreResults = false;
     }
   } catch (error) {
-    showError(error instanceof Error ? error.message : 'An unexpected error occurred.');
+    showError(error);
     hasMoreResults = false;
   } finally {
     isLoading = false;

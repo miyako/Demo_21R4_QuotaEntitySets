@@ -7,9 +7,10 @@ const errorMessage = document.getElementById('error-message');
 const resultsContainer = document.getElementById('results-container');
 const columns = ['firstname', 'lastname', 'jobTitle', 'salary'];
 
-function showError(message) {
+function showError(error) {
   loadingEl.hidden = true;
-  errorMessage.textContent = message;
+  if (typeof error === 'string') setI18nText(errorMessage, error);
+  else setErrorText(errorMessage, error, 'common.unexpected');
   errorPanel.hidden = false;
 }
 
@@ -22,7 +23,7 @@ function getEntities(payload) {
 
 function renderTable(entities) {
   if (entities.length === 0) {
-    resultsContainer.textContent = 'No results found.';
+    setI18nText(resultsContainer, 'common.noResults');
     resultsContainer.hidden = false;
     return;
   }
@@ -35,7 +36,7 @@ function renderTable(entities) {
 
   columns.forEach((column) => {
     const cell = document.createElement('th');
-    cell.textContent = column;
+    setI18nText(cell, `column.${column}`);
     headerRow.appendChild(cell);
   });
   tableHead.appendChild(headerRow);
@@ -58,11 +59,11 @@ function renderTable(entities) {
 
 async function loadLightResults() {
   if (!entitySetUrl || !entitySetUrl.includes('/$entityset/')) {
-    showError('No entity set reference was provided. Return to the results page and try again.');
+    showError('light.noEntitySet');
     return;
   }
 
-  entitySetReference.textContent = entitySetUrl;
+  setRawText(entitySetReference, entitySetUrl);
 
   try {
     const response = await fetch(entitySetUrl, {
@@ -75,7 +76,7 @@ async function loadLightResults() {
     try {
       payload = payloadText ? JSON.parse(payloadText) : null;
     } catch {
-      throw new Error(`The REST server returned invalid JSON (HTTP ${response.status}).`);
+      throw new I18nError('common.invalidJson', { status: response.status });
     }
 
     if (!response.ok) {
@@ -84,12 +85,12 @@ async function loadLightResults() {
     }
 
     const entities = getEntities(payload);
-    if (!entities) throw new Error('The REST response does not contain an entity collection.');
+    if (!entities) throw new I18nError('common.noEntityCollection');
 
     loadingEl.hidden = true;
     renderTable(entities);
   } catch (error) {
-    showError(error instanceof Error ? error.message : 'An unexpected error occurred.');
+    showError(error);
   }
 }
 

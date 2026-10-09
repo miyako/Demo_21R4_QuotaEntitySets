@@ -8,13 +8,13 @@ form.addEventListener('submit', async function (event) {
   const password = document.getElementById('password').value;
 
   if (!identifier || !password) {
-    status.textContent = 'Please enter your identifier and password.';
+    setI18nText(status, 'login.missing');
     status.hidden = false;
     status.classList.remove('success');
     return;
   }
 
-  status.textContent = 'Authenticating...';
+  setI18nText(status, 'login.authenticating');
   status.hidden = false;
   status.classList.remove('success');
 
@@ -47,19 +47,19 @@ form.addEventListener('submit', async function (event) {
       : payload === true || payload === 'true';
 
     if (!response.ok || !isAuthSuccess) {
-      status.textContent = 'wrong credentials';
+      setI18nText(status, 'login.wrongCredentials');
       status.classList.remove('success');
       return;
     }
 
-    status.textContent = 'Authentication successful. Redirecting...';
+    setI18nText(status, 'login.success');
     status.classList.add('success');
 
     setTimeout(function () {
       window.location.href = 'search.html';
     }, 500);
   } catch (error) {
-    status.textContent = 'wrong credentials';
+    setI18nText(status, 'login.wrongCredentials');
     status.classList.remove('success');
   }
 });
