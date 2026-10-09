@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en" data-i18n-doc-title="login.title">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,24 +9,24 @@
 <body>
 
 <header class="top auth-header">
-  <h1>Authentication</h1>
+  <h1 data-i18n="login.heading">Authentication</h1>
 </header>
 
 <main>
   <div class="panel auth-panel">
     <form id="login-form" class="auth-form" method="post" autocomplete="on">
       <div class="field">
-        <label for="identifier">Identifier</label>
-        <input type="text" id="identifier" name="identifier" value="Admin" placeholder="Enter your identifier" autocomplete="username" required>
+        <label for="identifier" data-i18n="login.identifier">Identifier</label>
+        <input type="text" id="identifier" name="identifier" value="Admin" placeholder="Enter your identifier" data-i18n-placeholder="login.identifierPlaceholder" autocomplete="username" required>
       </div>
 
       <div class="field">
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password" value="a" placeholder="Enter your password" autocomplete="current-password" required>
+        <label for="password" data-i18n="login.password">Password</label>
+        <input type="password" id="password" name="password" value="a" placeholder="Enter your password" data-i18n-placeholder="login.passwordPlaceholder" autocomplete="current-password" required>
       </div>
 
       <div class="submit-row">
-        <button type="submit" class="primary">Sign in</button>
+        <button type="submit" class="primary" data-i18n="login.submit">Sign in</button>
       </div>
 
       <p id="login-status" class="form-error" hidden></p>
@@ -34,6 +34,7 @@
   </div>
 </main>
 
+<script src="i18n.js"></script>
 <script src="login.js"></script>
 
 </body>

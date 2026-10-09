@@ -93,7 +93,7 @@ function renderStoredEntitySetRefs() {
 
   if (!refs.length) {
     const item = document.createElement('li');
-    item.textContent = 'No entity set reference created yet.';
+    setI18nText(item, 'search.noEntitySetRefs');
     item.classList.add('empty-state');
     entitySetListEl.appendChild(item);
     return;
@@ -115,7 +115,8 @@ function renderStoredEntitySetRefs() {
 
 function updatePreview() {
   const url = buildUrl();
-  previewEl.textContent = url || 'Fill in at least one field to build a query…';
+  if (url) setRawText(previewEl, url);
+  else setI18nText(previewEl, 'search.queryEmpty');
 }
 
 [
@@ -141,7 +142,7 @@ form.addEventListener('submit', (event) => {
 
   const url = buildUrl();
   if (!url) {
-    errorEl.textContent = 'Fill in the base URL and at least one search field.';
+    setI18nText(errorEl, 'search.formError');
     errorEl.hidden = false;
     return;
   }
