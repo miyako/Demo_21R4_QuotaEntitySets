@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><preferences stamp="15">
+<?xml version="1.0" encoding="UTF-8"?><preferences stamp="16">
 	<com.4d>
 		<deployment>
 			<options/>
@@ -21,7 +21,11 @@
 		</database>
 		<web>
 			<standalone_server>
-				<configuration allow_ssl="false" publish_at_startup="true" session_mode="1"/>
+				<configuration allow_ssl="false" publish_at_startup="true" session_mode="1">
+					<hosts>
+						<host home_page="login.html" id="0" name="default"/>
+					</hosts>
+				</configuration>
 				<rest launch_at_startup="true"/>
 				<qodlystudio enabled="true"/>
 			</standalone_server>
